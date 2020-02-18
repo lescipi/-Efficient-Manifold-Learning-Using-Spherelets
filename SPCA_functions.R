@@ -39,7 +39,7 @@ SPCA=function(X,d)
 
   if(n>max((d+1),5))   # if there are enough samples, fit the data by a sphere or a hyperplane
   {# do d+1 dimensional PCA first
-	  mu=colMeans(X);   centeredX=sapply(1:m,function(u){X[,u]-mu[u]}); # substract from each column
+	  mu=colMeans(X);  # substract from each column
 	  
 	pca=prcomp(X,retx=TRUE,center=TRUE)
 	part=pca$x[,1]
