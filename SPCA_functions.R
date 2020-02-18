@@ -8,7 +8,7 @@ SPCA=function(X,d)
 {
   dm=dim(as.matrix(X)); n=dm[1]; m=dm[2];
 
-  if(n<=max((d+2),5))
+  if(n<=max((d+1),5))
   {  
     cat("Not Enough Samples \n")
     SS=SS_new=0;
@@ -37,7 +37,7 @@ SPCA=function(X,d)
     c.d=t(V)%*%c
    }
 
-  if(n>max((d+1),5))   # if there are enough samples, fit the data by a sphere or a hyperplane
+  else if(n>max((d+1),5))   # if there are enough samples, fit the data by a sphere or a hyperplane
   {# do d+1 dimensional PCA first
 	  mu=colMeans(X);   centeredX=sapply(1:m,function(u){X[,u]-mu[u]}); # substract from each column
 	  
